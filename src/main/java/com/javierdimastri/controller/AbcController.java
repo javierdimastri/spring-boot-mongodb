@@ -13,7 +13,6 @@ import java.util.List;
 public class AbcController {
     @Autowired
     private AbcService abcService;
-
     @GetMapping("/abc")
     public ResponseEntity <List<Abc>> fetchAllAbc () {
         List<Abc> fetchedData = abcService.getAllAbc();
