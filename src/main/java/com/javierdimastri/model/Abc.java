@@ -16,6 +16,10 @@ public class Abc {
     private String name;
     private String description;
 
+    public Abc(String name, String description) {
+        this.name = name;
+        this.description = description;
+    }
 
     public ObjectId getId() {
         return id;
