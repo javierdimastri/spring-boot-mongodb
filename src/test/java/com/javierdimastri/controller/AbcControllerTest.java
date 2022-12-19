@@ -13,12 +13,11 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.times;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -42,7 +41,7 @@ public class AbcControllerTest {
     }
 
     @Test
-    public void fetchAllAbc_shouldReturnStatusOk_whenServiceInvoked() throws Exception{
+    public void fetchAllAbc_shouldReturnStatusOkAndCallGetAllAbcFromService_whenInvoked() throws Exception{
         Abc firstCreatedAbc = new Abc("collection name", "blabla");
         List<Abc> abcList = new ArrayList<>();
         abcList.add(firstCreatedAbc);
@@ -50,5 +49,7 @@ public class AbcControllerTest {
 
         mockMvc.perform(get("/abc"))
                 .andExpect(status().isOk());
+
+        verify(abcService, times(1)).getAllAbc();
     }
 }

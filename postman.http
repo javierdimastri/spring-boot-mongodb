@@ -1,12 +1,13 @@
 
 GET http://localhost:8585/abc
 ###
-#POST localhost:8080/users/
-#Content-Type: application/json
-#
-#{
-# "name" : "joki"
-#}
+POST localhost:8585/abc/
+Content-Type: application/json
+
+{
+  "description": "post ke 4",
+  "name" : "test post 4"
+}
 
 ###
 
