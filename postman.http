@@ -11,12 +11,13 @@ Content-Type: application/json
 
 ###
 
-#PUT localhost:8080/users/1
-#Content-Type: application/json
-#
-#{
-# "name": "jpo"
-#}
+PUT localhost:8585/abc/63a079ac400f361b50a0f666
+Content-Type: application/json
+
+{
+ "name": "jpo",
+  "description": "test update"
+}
 
 ###
 

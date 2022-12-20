@@ -26,4 +26,12 @@ public class AbcController {
         return new ResponseEntity<>(createdAbc , HttpStatus.CREATED);
     }
 
+    @PutMapping("/{abcId}")
+    public ResponseEntity modifyAbc(
+            @PathVariable(value = "abcId") String abcId,@RequestBody Abc payload
+    ){
+        Abc updatedData = abcService.changeAbcBy(abcId, payload);
+        return new ResponseEntity<>(updatedData, HttpStatus.OK);
+    }
+
 }
