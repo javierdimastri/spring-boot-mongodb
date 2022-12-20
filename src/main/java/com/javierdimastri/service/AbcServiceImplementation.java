@@ -16,7 +16,10 @@ public class AbcServiceImplementation implements AbcService {
     }
     @Override
     public Abc saveAbc(String description, String name) {
-        Abc payload = new Abc(name, description);
+        Abc payload = Abc.builder()
+                .name(name)
+                .description(description)
+                .build();
         return abcRepository.save(payload);
     }
 }

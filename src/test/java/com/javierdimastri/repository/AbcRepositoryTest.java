@@ -42,4 +42,13 @@ public class AbcRepositoryTest {
         assertThat(fetchedData.get(0)).isEqualTo(firstCreatedAbc);
         assertThat(fetchedData.size()).isEqualTo(2);
     }
+
+    @Test
+    public void save_shouldReturnCreatedAbc_whenSaveRepositoryInvoked(){
+        Abc firstCreatedAbc = new Abc("collection name", "blabla");
+
+        Abc actualResult = abcRepository.save(firstCreatedAbc);
+
+        assertThat(actualResult).isEqualTo(firstCreatedAbc);
+    }
 }

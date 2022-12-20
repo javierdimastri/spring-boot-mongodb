@@ -1,12 +1,18 @@
 package com.javierdimastri.model;
 
 import com.google.common.base.Objects;
+import lombok.*;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.validation.constraints.NotBlank;
 
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Document(collection = "abc")
 public class Abc {
     @Id
