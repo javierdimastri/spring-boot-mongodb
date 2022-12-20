@@ -5,4 +5,6 @@ import java.util.List;
 public interface AbcService {
     List<Abc> getAllAbc();
     Abc saveAbc(String description, String name);
+
+    Abc changeAbcBy(String id, Abc payload);
 }
