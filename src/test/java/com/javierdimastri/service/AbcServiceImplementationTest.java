@@ -34,4 +34,15 @@ public class AbcServiceImplementationTest {
         assertThat(actualResult).isEqualTo(mockedAbc);
         verify(abcRepository, times(1)).findAll();
     }
+    @Test
+    public void saveAbc_shouldCallSaveFromRepository_whenInvoked(){
+        String name = "test name";
+        String description = "test description";
+        Abc firstCreatedAbc = new Abc("test name", "test description");
+        when(abcRepository.save(firstCreatedAbc)).thenReturn(firstCreatedAbc);
+
+        abcService.saveAbc(description, name);
+
+        verify(abcRepository, times(1)).save(firstCreatedAbc);
+    }
 }
