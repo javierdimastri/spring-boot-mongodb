@@ -3,6 +3,7 @@ package com.javierdimastri.controller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.javierdimastri.model.Abc;
 import com.javierdimastri.service.AbcService;
+import org.bson.types.ObjectId;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -17,11 +18,12 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import java.util.ArrayList;
 import java.util.List;
+
+import static java.util.Collections.singletonList;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.mockito.Mockito.times;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -35,6 +37,8 @@ public class AbcControllerTest {
 
     @InjectMocks
     AbcController controller;
+
+    private final ObjectId ABC_ID = new ObjectId("5cc5e9914184de8673d7e1d1");
 
     @Before
     public void setUp() {
@@ -71,5 +75,28 @@ public class AbcControllerTest {
 
         verify(abcService, times(1))
                 .saveAbc(firstCreatedAbc.getName(), firstCreatedAbc.getDescription());
+    }
+
+    @Test
+    public void modifyAbc_shouldReturnStatusOkAndCallchangeAbcByFromService_whenInvokedWithCorrectPayload()
+            throws Exception{
+        String abcId ="5cc5e9914184de8673d7e1d1";
+        String urlTemplate = "/abc"+ "/" + abcId;
+        ObjectMapper objectMapper = new ObjectMapper();
+        Abc abcPayload = new Abc("collection name", "blabla");
+        Abc updatedAbc = Abc
+                .builder().id(ABC_ID).name(abcPayload.getName()).description(abcPayload.getDescription())
+                        .build();
+        when(abcService.changeAbcBy(abcId, abcPayload))
+                .thenReturn(updatedAbc);
+
+        mockMvc.perform(
+                put(urlTemplate)
+                        .content(objectMapper.writeValueAsString(abcPayload))
+                                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect((status().isOk()));
+
+        verify(abcService, times(1))
+                .changeAbcBy(abcId, abcPayload);
     }
 }

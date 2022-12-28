@@ -1,6 +1,7 @@
 package com.javierdimastri.repository;
 
 import com.javierdimastri.model.Abc;
+import org.bson.types.ObjectId;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -15,6 +16,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @RunWith(SpringRunner.class)
 @DataMongoTest
 public class AbcRepositoryTest {
+    private final ObjectId ABC_ID = new ObjectId("5cc5e9914184de8673d7e1d1");
     @Autowired
     AbcRepository abcRepository;
     @Autowired
@@ -50,5 +52,20 @@ public class AbcRepositoryTest {
         Abc actualResult = abcRepository.save(firstCreatedAbc);
 
         assertThat(actualResult).isEqualTo(firstCreatedAbc);
+    }
+
+    @Test
+    public void updateAbcBy_shouldUpdateExistingData_whenInvoked(){
+        Abc abcPayload = new Abc("collection name", "blabla");
+        Abc existingAbc = new Abc("collection existing", "blabl2a");
+        existingAbc = abcRepository.save(existingAbc);
+        Abc expectedUpdatedPayload = Abc.builder().id(existingAbc.getId())
+                .name(abcPayload.getName())
+                .description(abcPayload.getDescription())
+                .build();
+
+        Abc actualResult = abcRepository.updateAbcBy(existingAbc.getId(), abcPayload);
+
+        assertThat(actualResult).isEqualTo(expectedUpdatedPayload);
     }
 }
