@@ -13,8 +13,8 @@ import javax.validation.constraints.NotBlank;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Document(collection = "abc")
-public class Abc {
+@Document(collection = "address")
+public class Address {
     @Id
     private ObjectId id;
 
@@ -22,7 +22,7 @@ public class Abc {
     private String name;
     private String description;
 
-    public Abc(String name, String description) {
+    public Address(String name, String description) {
         this.name = name;
         this.description = description;
     }
@@ -59,8 +59,8 @@ public class Abc {
         if (object == null || getClass() != object.getClass()) {
             return false;
         }
-        Abc abc = (Abc) object;
-        return Objects.equal(id, abc.id) && Objects.equal(name, abc.name) && Objects.equal(description, abc.description);
+        Address address = (Address) object;
+        return Objects.equal(id, address.id) && Objects.equal(name, address.name) && Objects.equal(description, address.description);
     }
 
     @Override
