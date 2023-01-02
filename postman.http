@@ -1,22 +1,23 @@
 
-GET http://localhost:8585/abc
+GET http://localhost:8585/address
 ###
-POST localhost:8585/abc/
+POST localhost:8585/address/
 Content-Type: application/json
 
 {
-  "description": "post ke 4",
-  "name" : "test post 4"
+  "description": "post 1st address",
+  "name" : "address 1st"
 }
 
 ###
 
-PUT localhost:8585/abc/63a079ac400f361b50a0f666
+PUT localhost:8585/address/63b2eeeff0add618721e1a4c
+#modify value after address/ with _id get from posted value
 Content-Type: application/json
 
 {
- "name": "jpo",
-  "description": "test update"
+ "name": "another Address",
+  "description": "put addressss"
 }
 
 ###
