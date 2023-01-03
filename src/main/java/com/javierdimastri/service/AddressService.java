@@ -1,7 +1,5 @@
 package com.javierdimastri.service;
 import com.javierdimastri.model.Address;
-import org.bson.types.ObjectId;
-
 import java.util.List;
 
 public interface AddressService {
