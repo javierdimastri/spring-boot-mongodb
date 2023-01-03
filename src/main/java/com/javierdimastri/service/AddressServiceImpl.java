@@ -28,4 +28,9 @@ public class AddressServiceImpl implements AddressService {
         ObjectId objectId = new ObjectId(id);
         return addressRepository.updateAddressBy(objectId, payload);
     }
+    @Override
+    public void removeAddressById(String id) {
+        ObjectId objectId = new ObjectId(id);
+        addressRepository.deleteById(objectId);
+    }
 }
