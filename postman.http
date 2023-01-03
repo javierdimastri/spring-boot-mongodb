@@ -21,7 +21,6 @@ Content-Type: application/json
 }
 
 ###
-
-
-
+DELETE localhost:8585/address/63b43c10f0add605e7182870
+#modify value after address/ with _id you want to be deleted
 

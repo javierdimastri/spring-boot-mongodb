@@ -34,4 +34,9 @@ public class AddressController {
         return new ResponseEntity<>(updatedData, HttpStatus.OK);
     }
 
+    @DeleteMapping("/{addressId}")
+    public ResponseEntity removeAddress(@PathVariable(value = "addressId") String addressId){
+        addressService.removeAddressById(addressId);
+        return new ResponseEntity(HttpStatus.OK);
+    }
 }
