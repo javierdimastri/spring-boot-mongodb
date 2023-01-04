@@ -8,3 +8,5 @@ This spring boot app is build using maven and mongodb as it Database
 2. Define maven dependencies in pom.xml
 3. Configure mongoDB database in application properties
 4. Create Repository, Service and Controller
+5. Add CRUD functionality
+6. Add Test for each method
