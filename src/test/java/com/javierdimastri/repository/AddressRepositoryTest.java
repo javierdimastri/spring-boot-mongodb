@@ -66,4 +66,15 @@ public class AddressRepositoryTest {
 
         assertThat(actualResult).isEqualTo(expectedUpdatedPayload);
     }
+    @Test
+    public void deleteById_shouldRemoveTheExistingDataFromCollection_whenInvoked(){
+        String addressName = "collection existing";
+        String addressDescription = "blabl2a";
+        Address existingAddress = addressRepository.save(new Address(addressName, addressDescription));
+
+        addressRepository.deleteById(existingAddress.getId());
+        List<Address> expectedCollection = addressRepository.findAll();
+
+        assertThat(expectedCollection).isEmpty();
+    }
 }
