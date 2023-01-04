@@ -63,4 +63,14 @@ public class AddressServiceImplTest {
         assertThat(actualResult).isEqualTo(updatedAddress);
 
     }
+
+    @Test
+    public void removeAddressById_shouldCallDeleteByIdFromRepository_whenInvoked() {
+        String addressId = "5cc5e9914184de8673d7e1d1";
+        final ObjectId ADDRESS_ID = new ObjectId(addressId);
+
+        addressService.removeAddressById(addressId);
+
+        verify(addressRepository, times(1)).deleteById(ADDRESS_ID);
+    }
 }
