@@ -104,9 +104,8 @@ public class AddressControllerTest {
         String addressId ="5cc5e9914184de8673d7e1d1";
         String urlTemplate = "/address"+ "/" + addressId;
 
-        mockMvc.perform(
-                delete(urlTemplate)
-        ).andExpect(status().isOk());
+        mockMvc.perform(delete(urlTemplate))
+                .andExpect(status().isOk());
 
         verify(addressService, times(1))
                 .removeAddressById(addressId);
