@@ -10,3 +10,7 @@ This spring boot app is build using maven and mongodb as it Database
 4. Create Repository, Service and Controller
 5. Add CRUD functionality
 6. Add Test for each method
+
+This Demo App could be run with assumption you already installed Mongodb database and exist in port: 27017
+
+To run swagger please refer to url: http://localhost:8585/swagger-ui.html#/
