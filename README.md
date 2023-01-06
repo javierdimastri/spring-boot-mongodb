@@ -10,6 +10,7 @@ This spring boot app is build using maven and mongodb as it Database
 4. Create Repository, Service and Controller
 5. Add CRUD functionality
 6. Add Test for each method
+7. If you use Intellij don't forget to check Enable env file in Edit Configuration and choose .env file
 
 This Demo App could be run with assumption you already installed Mongodb database and exist in port: 27017
 
