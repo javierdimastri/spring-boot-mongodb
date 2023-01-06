@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: spring-boot-exercise
+  data:
+    mongodb:
+      db_name: "${DB_NAME}"
+      uri: "${DBURI}"
