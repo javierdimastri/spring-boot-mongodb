@@ -1,7 +1,7 @@
 
-GET http://localhost:8585/address
+GET http://localhost:8585/api/address
 ###
-POST localhost:8585/address/
+POST localhost:8585/api/address/
 Content-Type: application/json
 
 {
@@ -11,7 +11,7 @@ Content-Type: application/json
 
 ###
 
-PUT localhost:8585/address/63b2eeeff0add618721e1a4c
+PUT localhost:8585/api/address/63b2eeeff0add618721e1a4c
 #modify value after address/ with _id get from posted value
 Content-Type: application/json
 
@@ -21,6 +21,6 @@ Content-Type: application/json
 }
 
 ###
-DELETE localhost:8585/address/63b43c10f0add605e7182870
+DELETE localhost:8585/api/address/63b43c10f0add605e7182870
 #modify value after address/ with _id you want to be deleted
 

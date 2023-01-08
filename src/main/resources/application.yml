@@ -5,3 +5,10 @@ spring:
     mongodb:
       db_name: "${DB_NAME}"
       uri: "${DBURI}"
+service:
+  host_url: "${HOST_URL}"
+#Security Service Configuration
+security:
+  app:
+    jwtSecret: "${JWT_SECRET}"
+    jwtExpirationMs: "${ONE_DAY_IN_MS}"
