@@ -1,8 +1,13 @@
 package com.javierdimastri.model;
 
+import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+@Getter
+@Setter
+@AllArgsConstructor
+@Builder
 @Document(collection = "roles")
 public class Role {
     @Id

@@ -24,3 +24,13 @@ Content-Type: application/json
 DELETE localhost:8585/api/address/63b43c10f0add605e7182870
 #modify value after address/ with _id you want to be deleted
 
+### SignUp Part
+POST localhost:8585/api/authentication/signup/
+Content-Type: application/json
+
+{
+  "username": "userMod",
+  "email" : "userMod@email.com",
+  "password": "12345678",
+  "roles": ["user", "mod"]
+}
