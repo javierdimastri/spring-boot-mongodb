@@ -3,5 +3,7 @@ spring:
     name: spring-boot-exercise
   data:
     mongodb:
-      db_name: "${DB_NAME}"
+      database: "${DB_NAME}"
       uri: "${DBURI}"
+server:
+  port: "${SERVER_PORT}"

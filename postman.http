@@ -5,8 +5,8 @@ POST localhost:8585/address/
 Content-Type: application/json
 
 {
-  "description": "post 1st address",
-  "name" : "address 1st"
+  "description": "post working hour",
+  "name" : "address work hour"
 }
 
 ###
