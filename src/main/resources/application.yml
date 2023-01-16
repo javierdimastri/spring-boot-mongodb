@@ -12,3 +12,5 @@ security:
   app:
     jwtSecret: "${JWT_SECRET}"
     jwtExpirationMs: "${ONE_DAY_IN_MS}"
+server:
+  port: "${SERVER_PORT}"
