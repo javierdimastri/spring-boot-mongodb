@@ -1,6 +1,5 @@
 package com.javierdimastri.repository;
 
-import com.javierdimastri.model.ERole;
 import com.javierdimastri.model.Role;
 import org.junit.After;
 import org.junit.Before;
@@ -30,12 +29,12 @@ public class RoleRepositoryTest {
         mongoTemplate.dropCollection(Role.class);
     }
     @Test
-    public void findByName_shouldReturnRoleModeratorByItsName_whenInvoked() {
-        Role createdRole = new Role(ERole.ROLE_MODERATOR);
+    public void findAllByName_shouldReturnRoleModeratorByItsName_whenInvoked() {
+        Role createdRole = new Role("ROLE_MODERATOR");
         roleRepository.save(createdRole);
 
-        Role actualResult = roleRepository.findByName(ERole.ROLE_MODERATOR).get();
+        Role actualResult = roleRepository.findByName("ROLE_MODERATOR");
 
-        assertThat(actualResult).isEqualTo(createdRole);
+        assertThat(actualResult.getName()).isEqualTo(createdRole.getName());
     }
 }

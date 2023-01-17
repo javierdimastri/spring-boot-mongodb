@@ -5,8 +5,8 @@ POST localhost:8585/api/address/
 Content-Type: application/json
 
 {
-  "description": "post 1st address",
-  "name" : "address 1st"
+  "description": "post working hour",
+  "name" : "address work hour"
 }
 
 ###
@@ -21,11 +21,11 @@ Content-Type: application/json
 }
 
 ###
-DELETE localhost:8585/api/address/63b43c10f0add605e7182870
+DELETE localhost:8585/api/address/63c523cc6c02d67c97251bac
 #modify value after address/ with _id you want to be deleted
 
 ### SignUp Part
-POST localhost:8585/api/authentication/signup/
+POST localhost:8080/api/authentication/signup/
 Content-Type: application/json
 
 {

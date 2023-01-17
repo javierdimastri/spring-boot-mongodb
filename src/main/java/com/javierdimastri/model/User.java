@@ -1,5 +1,7 @@
 package com.javierdimastri.model;
 
+import lombok.*;
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -8,12 +10,18 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Document(collection = "user")
 public class User {
     @Id
-    private String id;
+    private ObjectId id;
 
     @NotBlank
     @Size(max = 20)
@@ -28,11 +36,7 @@ public class User {
     @Size(max = 120)
     private String password;
 
-    @DBRef
-    private Set<Role> roles = new HashSet<>();
-
-    public User() {
-    }
+    private List<Role> roles;
 
     public User(String username, String email, String password) {
         this.username = username;
@@ -40,11 +44,11 @@ public class User {
         this.password = password;
     }
 
-    public String getId() {
+    public ObjectId getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(ObjectId id) {
         this.id = id;
     }
 
@@ -72,11 +76,11 @@ public class User {
         this.password = password;
     }
 
-    public Set<Role> getRoles() {
+    public List<Role> getRoles() {
         return roles;
     }
 
-    public void setRoles(Set<Role> roles) {
+    public void setRoles(List<Role> roles) {
         this.roles = roles;
     }
 }
