@@ -1,12 +1,12 @@
 package com.javierdimastri.controller;
 
+import com.javierdimastri.model.ERole;
 import com.javierdimastri.model.Role;
 import com.javierdimastri.model.User;
 import com.javierdimastri.payload.request.LoginRequest;
 import com.javierdimastri.payload.request.SignupRequest;
 import com.javierdimastri.payload.response.JwtResponse;
 import com.javierdimastri.payload.response.MessageResponse;
-import com.javierdimastri.repository.RoleRepository;
 import com.javierdimastri.repository.UserRepository;
 import com.javierdimastri.security.jwt.JwtUtils;
 import com.javierdimastri.security.services.UserDetailsImpl;
@@ -23,7 +23,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -91,23 +90,23 @@ public class AuthenticationController {
         List<Role> roles = new ArrayList<>();
 
         if (strRoles == null) {
-            Role userRole = roleService.getRoleByName("ROLE_USER");
+            Role userRole = roleService.getRoleByName(ERole.ROLE_USER);
             roles.add(userRole);
         } else {
             strRoles.forEach(role -> {
                 switch (role) {
                     case "admin":
-                        Role adminRole = roleService.getRoleByName("ROLE_ADMIN");
+                        Role adminRole = roleService.getRoleByName(ERole.ROLE_ADMIN);
                         roles.add(adminRole);
 
                         break;
                     case "mod":
-                        Role modRole = roleService.getRoleByName("ROLE_MODERATOR");
+                        Role modRole = roleService.getRoleByName(ERole.ROLE_MODERATOR);
                         roles.add(modRole);
 
                         break;
                     default:
-                        Role userRole = roleService.getRoleByName("ROLE_USER");
+                        Role userRole = roleService.getRoleByName(ERole.ROLE_USER);
                         roles.add(userRole);
                 }
             });

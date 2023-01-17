@@ -15,9 +15,9 @@ public class Role {
     @Id
     private ObjectId id;
 
-    private String name;
+    private ERole name;
 
-    public Role(String name) {
+    public Role(ERole name) {
         this.name = name;
     }
 
@@ -29,11 +29,11 @@ public class Role {
         this.id = id;
     }
 
-    public String getName() {
+    public ERole getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(ERole name) {
         this.name = name;
     }
 }

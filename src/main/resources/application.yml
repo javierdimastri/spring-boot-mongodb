@@ -5,6 +5,9 @@ spring:
     mongodb:
       db_name: "${DB_NAME}"
       uri: "${DBURI}"
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
 service:
   host_url: "${HOST_URL}"
 #Security Service Configuration
