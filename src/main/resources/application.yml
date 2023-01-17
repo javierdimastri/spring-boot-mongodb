@@ -3,7 +3,17 @@ spring:
     name: spring-boot-exercise
   data:
     mongodb:
-      database: "${DB_NAME}"
+      db_name: "${DB_NAME}"
       uri: "${DBURI}"
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+service:
+  host_url: "${HOST_URL}"
+#Security Service Configuration
+security:
+  app:
+    jwtSecret: "${JWT_SECRET}"
+    jwtExpirationMs: "${ONE_DAY_IN_MS}"
 server:
   port: "${SERVER_PORT}"

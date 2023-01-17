@@ -1,7 +1,12 @@
 
-GET http://localhost:8585/address
+### Get Address Data With Token
+GET http://localhost:8585/api/address
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyTW9kIiwiaWF0IjoxNjczOTYyMzY2LCJleHAiOjE2NzQwNDg3NjZ9.GrNDC8XXqEVwpJkuW07KzRVbRZWEpIzssiRZBDRK-oZ1ACPd5pqmVF4Oj-7abVKVx8v_eS553j3etSCgpyP1IQ
+#get token after signin and put beside the bearer
+
 ###
-POST localhost:8585/address/
+POST localhost:8585/api/address/
 Content-Type: application/json
 
 {
@@ -11,7 +16,7 @@ Content-Type: application/json
 
 ###
 
-PUT localhost:8585/address/63b2eeeff0add618721e1a4c
+PUT localhost:8585/api/address/63b2eeeff0add618721e1a4c
 #modify value after address/ with _id get from posted value
 Content-Type: application/json
 
@@ -21,6 +26,25 @@ Content-Type: application/json
 }
 
 ###
-DELETE localhost:8585/address/63b43c10f0add605e7182870
+DELETE localhost:8585/api/address/63c523cc6c02d67c97251bac
 #modify value after address/ with _id you want to be deleted
 
+### SignUp Part
+POST localhost:8585/api/authentication/signup/
+Content-Type: application/json
+
+{
+  "username": "userMod",
+  "email" : "userMod@email.com",
+  "password": "12345678",
+  "roles": ["user", "mod"]
+}
+
+### SignIn Part
+POST localhost:8585/api/authentication/signin/
+Content-Type: application/json
+
+{
+  "username": "userMod",
+  "password": "12345678"
+}
